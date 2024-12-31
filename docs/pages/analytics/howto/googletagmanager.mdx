@@ -1,0 +1,57 @@
+import { Callout, Steps } from 'nextra/components'
+
+# Use Google Tag Manager with Insights
+
+The Insights tracker can be installed using Google Tag Manager. However, since Google Tag Manager strips attributes from scripts, you need to use an alternative method.
+
+<Steps>
+
+### Standard Installation
+
+Normally, you would install the Insights tracker with the following code:
+
+```html
+<script
+  defer
+  src="https://collector.insihts.com/script.js"
+  data-website-id="94db1cb1-74f4-4a40-ad6c-962362670409"
+></script>
+```
+
+### Google Tag Manager Installation
+
+To ensure the required attributes are preserved when using Google Tag Manager, use the following script instead:
+
+```html
+<script>
+  (function () {
+    var el = document.createElement('script');
+    el.setAttribute('src', 'https://collector.insihts.com/script.js');
+    el.setAttribute('data-website-id', '94db1cb1-74f4-4a40-ad6c-962362670409');
+    document.body.appendChild(el);
+  })();
+</script>
+```
+
+### Adding the Script to Google Tag Manager
+
+1. **Create a New Tag**:
+   - Go to your Google Tag Manager dashboard.
+   - Click on **Add a new tag**.
+
+2. **Tag Configuration**:
+   - Select **Custom HTML** as the tag type.
+   - Paste the above script into the HTML content box.
+
+3. **Set a Trigger**:
+   - Assign a trigger (e.g., All Pages) to fire the tag.
+
+4. **Publish Changes**:
+   - Save the tag and trigger.
+   - Publish your changes to make the tracker active.
+
+</Steps>
+
+<Callout>
+  For further assistance, refer to the [Insights Help Center](https://insihts.com) or contact support.
+</Callout>

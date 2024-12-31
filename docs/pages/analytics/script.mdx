@@ -1,0 +1,201 @@
+import { Callout, Tabs } from 'nextra/components'
+
+# Adding the Insights Tracker in Multiple Languages
+
+The Insights tracker can be integrated into various frameworks and languages. Below are examples for different platforms:
+
+<Tabs items={["Next.js", "React", "Vite", "React Native", "Swift", "Kotlin", "Flutter"]}>
+
+<Tabs.Tab>
+```javascript filename="_document.js"
+import { Html, Head, Main, NextScript } from 'next/document';
+
+export default function Document() {
+  return (
+    <Html>
+      <Head>
+        <script
+          defer
+          src="https://collector.insihts.com/script.js"
+          data-website-id="YOUR_WEBSITE_ID"
+        ></script>
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+}
+```
+</Tabs.Tab>
+
+<Tabs.Tab>
+```html filename="public/index.html"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React App</title>
+    <script
+      defer
+      src="https://collector.insihts.com/script.js"
+      data-website-id="YOUR_WEBSITE_ID"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+```
+</Tabs.Tab>
+
+<Tabs.Tab>
+```html filename="index.html"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <script
+      defer
+      src="https://collector.insihts.com/script.js"
+      data-website-id="YOUR_WEBSITE_ID"
+    ></script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
+```
+</Tabs.Tab>
+
+<Tabs.Tab>
+```javascript
+import React from 'react';
+import { WebView } from 'react-native-webview';
+
+export default function App() {
+  return (
+    <WebView
+      source={{
+        html: `
+          <script
+            defer
+            src="https://collector.insihts.com/script.js"
+            data-website-id="YOUR_WEBSITE_ID"
+          ></script>
+        `,
+      }}
+    />
+  );
+}
+```
+</Tabs.Tab>
+
+<Tabs.Tab>
+```swift
+import WebKit
+
+let webView = WKWebView()
+let html = """
+<html>
+  <head>
+    <script
+      defer
+      src="https://collector.insihts.com/script.js"
+      data-website-id="YOUR_WEBSITE_ID"
+    ></script>
+  </head>
+  <body></body>
+</html>
+"""
+
+webView.loadHTMLString(html, baseURL: nil)
+```
+</Tabs.Tab>
+
+<Tabs.Tab>
+```kotlin
+import android.webkit.WebView
+
+val webView = WebView(this)
+val html = """
+<html>
+  <head>
+    <script
+      defer
+      src="https://collector.insihts.com/script.js"
+      data-website-id="YOUR_WEBSITE_ID"
+    ></script>
+  </head>
+  <body></body>
+</html>
+"""
+
+webView.loadData(html, "text/html", "utf-8")
+```
+</Tabs.Tab>
+
+<Tabs.Tab>
+```dart
+import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Insights Tracker')),
+        body: WebView(
+          initialUrl: Uri.dataFromString(
+            '''
+              <html>
+                <head>
+                  <script
+                    defer
+                    src="https://collector.insihts.com/script.js"
+                    data-website-id="YOUR_WEBSITE_ID"
+                  ></script>
+                </head>
+                <body></body>
+              </html>
+            ''',
+            mimeType: 'text/html',
+          ).toString(),
+          javascriptMode: JavascriptMode.unrestricted,
+        ),
+      ),
+    );
+  }
+}
+```
+</Tabs.Tab>
+
+</Tabs>
+
+## Accessing the Tracking Code in Insihts
+
+Once you add a website in Insihts, you can obtain the tracking code using the following steps:
+
+1. Navigate to the **Highlights** page in Insihts.
+   - Click the **Get Tracking Code** button.
+
+2. Alternatively, click **View Details** for the website.
+   - Under the **Info** section, navigate to the **Tracking Code** tab.
+   - Copy the tracking code provided.
+
+3. Another option is to go to the **Products** section.
+   - Click the **View CTA** button, which redirects you to the **Overview** page.
+   - From there, navigate to the **Info** page and select the **Tracking Code** tab to find the tracking code.
+
+<Callout>
+  For detailed guidance, visit our [Insihts Help Center](https://insihts.com) or contact support.
+</Callout>

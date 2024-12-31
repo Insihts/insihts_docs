@@ -1,0 +1,22 @@
+---
+title: Project Domains
+description: Select the domains where the Insihts Workflows SDK can be used.
+---
+
+# Project Domains
+
+Select the domains where the Insihts Workflows SDK can be used. This is a security feature that allows you to restrict where the Insihts Workflows SDK can be used.
+
+
+
+## Add a Domain
+
+To add a domain, just click on the **Add Domain** button and enter the domain name. Make sure to enter the domain with the correct protocol (`http://` or `https://`) and without the trailing slash. Wildcards are not supported.
+
+### Null Origin
+
+Some environments don't have a domain, for example, Figma plugins. You can allow null origins by adding `null` to the list of allowed domains.
+
+## Local Development
+
+When you are developing locally, you don't need to add `localhost` and `127.0.0.1` to the list of allowed domains. The Insihts Workflows SDK will work on your machine without any additional configuration. Note that any events from the local environment will be ignored in the analytics and billing.

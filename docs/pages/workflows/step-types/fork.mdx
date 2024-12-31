@@ -1,0 +1,19 @@
+---
+title: Fork Step
+description: With a fork step, you can create conditional paths in your workflow based on user input or any other condition.
+---
+
+# Fork Step
+
+With a fork step, you can create conditional paths in your workflow based on user input or any other condition.
+
+In the demo below, after clicking the **Continue** button in the modal, the workflow will be forked based on the button clicked (A or B).
+
+## Targeting Branches
+
+For a workflow to continue to a branch, you need to create a way for the user to get there. This can be done in multiple ways:
+
+- **Wait Step**: Use a wait step that has a target branch step set.
+- **Footer Button**: Add a button in the [footer](/step-types/shared-properties/footer-properties) actions with a target branch set.
+
+The target branch field is a number that corresponds to the branch number in the fork step. The first branch is `0`, the second is `1`, and so on. In the visual step editor, you can count the branches from left to right.

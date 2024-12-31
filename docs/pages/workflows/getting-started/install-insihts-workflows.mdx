@@ -1,0 +1,98 @@
+---
+title: Install Insihts Workflows
+description: Learn how to install Insihts Workflows in your product
+---
+
+import { Tabs, Pre, Code } from "nextra/components";
+
+# Install Insihts Workflows
+
+<Tabs items={["React", "JS snippet (CDN)", "NPM package"]}>
+
+<Tabs.Tab>
+
+Install the Insihts Workflows SDK library via an NPM package manager.
+
+```sh npm2yarn
+npm i @insihts/js
+```
+
+Create the Insihts Workflows component and initialize it with your project ID.
+
+```jsx
+"use client";
+
+import { init } from "@insihts/js";
+import { useEffect } from "react";
+
+export const InsihtsWorkflows = () => {
+  useEffect(() => {
+    init({
+      // Insert your Insihts Workflows projectId
+      projectId: "xxxx",
+    });
+  }, []);
+
+  return null;
+};
+```
+
+Lastly, don't forget to render the Insihts Workflows component in the root of your application (`layout.tsx` or `App.tsx`). When that's done, you can start creating onboarding workflows and launching them in your product.
+
+</Tabs.Tab>
+
+<Tabs.Tab>
+
+This is the simplest way to install Insihts Workflows. It only takes a few minutes.
+
+Copy the snippet below and paste it within the `<head>` tag of your product—ideally right before the closing `</head>` tag.
+
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/@insihts/js/latest/index.global.js"></script>
+```
+
+When you're done, you can start using Insihts Workflows by calling `insihts.init()` anywhere in your code. You can find the `projectId` in your project settings.
+
+```html
+<script type="module">
+  insihts.init({
+    // Insert your Insihts Workflows projectId
+    projectId: "xxxx",
+  });
+</script>
+```
+
+Once the snippet is installed, you can start creating onboarding workflows and launching them in your product.
+
+</Tabs.Tab>
+
+<Tabs.Tab>
+
+Install the Insihts Workflows SDK library via an NPM package manager.
+
+```sh npm2yarn
+npm i @insihts/js
+```
+
+Then import it into your code. You can find the `projectId` in your project settings.
+
+```js
+import { init } from "@insihts/js";
+
+init({
+  // Insert your Insihts Workflows projectId
+  projectId: "xxxx",
+});
+```
+
+Once the library is installed, you can start creating onboarding workflows and launching them in your product.
+
+</Tabs.Tab>
+
+</Tabs>
+
+{/* ## Set up a proxy (optional) */}
+
+{/* We recommend setting up a proxy to load workflows from Insihts Cloud, so they're less likely to be intercepted by ad blockers. There are several options for creating a reverse proxy, including Cloudflare Workers, Vercel, and Netlify. */}
+
+{/* TODO: Add a simple article for the proxy process */}

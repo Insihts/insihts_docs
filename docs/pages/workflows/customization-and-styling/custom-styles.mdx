@@ -1,0 +1,50 @@
+---
+title: Custom Styles
+description: Create a custom theme to change the look and feel of your onboarding workflows.
+---
+
+# Custom Styles
+
+Create a custom theme to change the look and feel of your onboarding workflows. We strive to provide good defaults, but we expect that you will want to customize how the elements look to match your brand and application.
+
+
+
+## CSS Variables (Recommended)
+
+CSS variables are the easier way to customize your theme. With variables, you can change the basics like colors, fonts, and spacing across all the elements in the onboarding workflows. Using variables is less likely to break when we introduce new features or changes (but we strive to avoid breaking changes whenever possible).
+
+If you ever need to go back to the start and get the default CSS template, click the **Apply Defaults** button.
+
+### Dark Mode
+
+Out of the box, Insihts Workflows supports dark mode when you apply the class `.dark` on either `html` or `body`. You can change the selector to match your theming implementation.
+
+```css
+:root {
+  /* This is your default (light) theme */
+  --workflows-bg-default: #ffffff;
+  --workflows-bg-primary: #ec6441;
+}
+
+.dark {
+  /* This is your dark theme */
+  --workflows-bg-default: #181818;
+  --workflows-bg-primary: #e46a49;
+}
+```
+
+## Full CSS Template
+
+For more advanced styling, you can use the full CSS template. This template allows you to customize every element used in the onboarding workflows. Please note that this template is more likely to receive breaking changes as we introduce more step types and features.
+
+Customizing the full CSS template requires a good understanding of CSS and the structure of the onboarding workflows. We recommend using the CSS variables template whenever possible. Make sure to preview and test your changes in the onboarding workflows to ensure they look good on all devices and screen sizes. We transpile the CSS with [lightningcss.dev](https://lightningcss.dev) so you don't have to worry about browser compatibility.
+
+### Customizing the Full CSS Template
+
+To customize the full CSS template, you need to switch on the **Customize Full CSS Template** toggle on the **Style Template** page. This will display the full CSS template that you can customize.
+
+If you ever need to go back to the start and get the default CSS template, click the **Apply Defaults** button.
+
+### Restoring to Default
+
+When you customize the full CSS template, the SDK will always load your custom CSS even if there are breaking changes. If you want to go back to the default CSS, just switch off the **Customize Full CSS Template** toggle on the **Style Template** page. This will make sure that your SDK will always load the correct CSS for the version you are using.

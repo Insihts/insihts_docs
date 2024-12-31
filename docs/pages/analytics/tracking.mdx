@@ -1,0 +1,91 @@
+import { Callout, Steps } from 'nextra/components'
+
+# Tracking Methods in Insights
+
+Insights provides powerful tracking methods for collecting data on pageviews, events, and sessions. Here’s how to use these features effectively.
+
+<Steps>
+
+### Pageviews
+
+Tracks a pageview automatically when the tracking script is loaded. By default, the tracker collects the following properties:
+
+- **hostname**: Hostname of the server
+- **language**: Browser language
+- **referrer**: Page referrer
+- **screen**: Screen dimensions (e.g., 1920x1080)
+- **title**: Page title
+- **url**: Page URL
+- **website**: Website ID (required)
+
+#### Custom Pageview Payload
+If you want to send a custom payload, pass an object to the `track` function:
+
+```js
+insihts.track({
+  website: 'e676c9b4-11e4-4ef1-a4d7-87001773e9f2',
+  url: '/home',
+  title: 'Home page'
+});
+```
+
+To include existing properties and add custom ones:
+
+```js
+insihts.track(props => ({
+  ...props,
+  url: '/home',
+  title: 'Home page'
+}));
+```
+
+### Events
+
+Tracks an event with a given name:
+
+```js
+insihts.track('signup-button');
+```
+
+#### Event Data
+Tracks an event with dynamic data:
+
+```js
+insihts.track('signup-button', { name: 'newsletter', id: 123 });
+```
+
+Equivalent to:
+
+```js
+insihts.track(props => ({
+  ...props,
+  name: 'signup-button',
+  data: {
+    name: 'newsletter',
+    id: 123
+  }
+}));
+```
+
+#### Event Data Limits
+
+Event data must conform to the following limits:
+
+- Numbers: Maximum precision of 4.
+- Strings: Maximum length of 500 characters.
+- Arrays: Converted to a string with the same max length of 500 characters.
+- Objects: Maximum of 50 properties (arrays are considered 1 property).
+
+### Session Data
+
+Tracks a session with dynamic data. Use the `identify` function to save data about the current session:
+
+```js
+insihts.identify({ email: 'bob@aol.com' });
+```
+
+</Steps>
+
+<Callout>
+  For more details, refer to the [Insights Documentation](https://insihts.com) or contact our support team.
+</Callout>

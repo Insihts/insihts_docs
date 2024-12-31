@@ -1,0 +1,70 @@
+---
+title: Wait Properties
+description: Learn how to wait for user interaction in the tooltip, modal, or banner.
+---
+
+# Wait Properties
+
+Wait properties can be customized in these step types:
+
+- [Tooltip](/step-types/tooltip)
+- [Modal](/step-types/modal)
+- [Banner](/step-types/banner)
+- [Wait](/step-types/wait)
+
+The wait section allows you to pause the workflow until specific user interactions occur in the tooltip, modal, or banner before proceeding to the next step. To begin, add a wait option to the step by clicking the **Add Wait Option** button in the **Wait** section. You can add multiple wait options where each option can be completed independently.
+
+## Different Types of Wait Options
+
+There are currently five types of wait options. These are the same as the start options you can set for a workflow.
+
+### Location
+
+The **Location** option proceeds when the user visits a specific page. Only the location pathname is used for matching. For example, from the URL `https://acme.com/search=query=onboarding`, the `/search=query=onboarding` part is used.
+
+When matching a location, the SDK uses regex. Entering `/onboarding` triggers a partial match. For exact matching, add the start `^` and end `$` symbols to the location, e.g., `^/onboarding$`.
+
+Examples of possible locations:
+
+- `empty` - Matches any URL (this will not continue the workflow on its own but can be combined with other options).
+- `/` - Matches any URL (continues the workflow on every page if no other options are set).
+- `^/$` - Matches the root page.
+- `/onboarding` - Matches any URL with `/onboarding` in it.
+- `^/onboarding` - Matches any URL starting with `/onboarding`.
+- `^/onboarding$` - Matches exactly `/onboarding`.
+- `search=.+` - Matches any URL with the `search` query parameter and at least one character value.
+
+Location can be combined with other options to narrow down the wait conditions further.
+
+### Click
+
+The **Click** option continues a workflow when the user clicks on a specific element. Use a [CSS selector](#how-to-pick-the-right-css-selector) that matches the element.
+
+### Element on Page
+
+The **Element on Page** option continues a workflow when a specific element appears on the page/DOM. Use a [CSS selector](#how-to-pick-the-right-css-selector) that matches the element. This is useful to ensure the page is in a specific state before showing the workflow, such as when a page loads or when there is an empty state.
+
+### Input Change
+
+The **Input Change** option continues a workflow when the user changes the value of a specific input, like a text input in a form. Use a [CSS selector](#how-to-pick-the-right-css-selector) that matches the input element.
+
+### Form Submit
+
+Similarly to **Input Change**, the **Form Submit** option continues a workflow when the user submits a specific form. Use a [CSS selector](#how-to-pick-the-right-css-selector) that matches the form element.
+
+## How to Pick the Right CSS Selector
+
+Selecting elements on the page requires the right CSS selector to avoid conflicts with other elements. Here are some tips:
+
+- **Use unique classes or IDs**: If possible, use unique classes or IDs for the target element to ensure the selector matches only the desired element.
+- **Use the most specific selector possible**: If unique classes or IDs aren't available, use the most specific selector possible to reduce conflicts.
+- **Use browser developer tools**: Use browser developer tools to find the right selector. This [guide](https://www.scrapingbee.com/tutorials/how-to-extract-css-selectors-using-chrome/) can help you find the right CSS selector.
+- **Test the selector**: After selecting a selector, test it in the browser's console to ensure it matches the correct element. Use `document.querySelector` for testing.
+
+Examples of CSS selectors:
+
+- `#my-button` - Matches an element with the ID `my-button`.
+- `.my-class` - Matches an element with the class `my-class`.
+- `button` - Matches all button elements.
+- `input[type="text"]` - Matches all text input elements.
+- `body > div > div > form > div:nth-child(2) > button` - Matches a specific button element.

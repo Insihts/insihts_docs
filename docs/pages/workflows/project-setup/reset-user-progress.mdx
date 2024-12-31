@@ -1,0 +1,50 @@
+---
+title: Reset User Progress
+description: Learn how to reset onboarding workflows progress for a specific user.
+---
+
+# Reset User Progress
+
+You can reset the progress of a user for a specific workflow or all workflows. This can be useful when you want to test the onboarding experience again or when you want to reset the progress for a specific user. You can reset the progress from the SDK or from the Insihts Workflows Cloud.
+
+## Reset from SDK
+
+To reset from the SDK, make sure you [identify the user first](/getting-started/identify-users). After the user is identified, you can call one of the following functions to reset the progress for the given `userId`.
+
+### Reset Single Workflow
+
+To reset a specific workflow for a user, you can call the `resetWorkflow` function with the workflow human ID as an argument. To get the workflow human ID, head over to the Settings tab of the workflow in the Insihts Workflows Cloud.
+
+```js
+import { resetWorkflow } from "@insihts/js";
+
+// Reset single workflow
+resetWorkflow("my-workflow");
+```
+
+### Reset All Workflows
+
+To reset all workflows for a user, you can call the `resetAllWorkflows` function.
+
+```js
+import { resetAllWorkflows } from "@insihts/js";
+
+// Reset all workflows
+resetAllWorkflows();
+```
+
+## Reset from Insihts Workflows Cloud
+
+Similarly to the SDK, you can reset user progress from the Insihts Workflows Cloud.
+
+### Reset All Workflows
+
+
+
+To reset all workflows for a user, head over to project settings in the Insihts Workflows Cloud and enter the `userId` you want to reset the progress for and confirm the action. This will reset the progress for the given `userId` for all workflows in the project.
+
+### Reset Single Workflow
+
+
+
+To reset a specific workflow for a user, head over to the workflow settings in the Insihts Workflows Cloud and enter the `userId` you want to reset the progress for and confirm the action. This will reset the progress for the given `userId` for the specific workflow.

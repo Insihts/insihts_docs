@@ -1,0 +1,82 @@
+import { Callout, Steps } from 'nextra/components'
+
+# Installing Insights via Node Client
+
+For those who prefer using a server-side solution, you can install Insights using our Node client. Follow these steps:
+
+<Steps>
+
+### Step 1: Install the Node Client
+
+You can install the Insights Node client using either npm or yarn. Run one of the following commands in your project directory:
+
+**Using npm:**
+
+```sh npm2yarn
+npm install @insihts/node
+```
+
+
+### Step 2: Set Up the Client (CommonJS)
+
+Create a new file or update your existing server-side code to include the following setup. Replace `YOUR_WEBSITE_ID` with your actual website ID from Insights.
+
+```js filename="server.js"
+const Insihts = require('@insihts/node-client');
+
+const client = new Insihts({
+  websiteId: 'YOUR_WEBSITE_ID',
+});
+
+// Example: Track a pageview
+client.trackPageview({
+  url: 'https://yourwebsite.com',
+  referrer: 'https://referrer.com',
+}).then(response => {
+  console.log('Pageview tracked', response);
+}).catch(error => {
+  console.error('Error tracking pageview', error);
+});
+```
+
+### Step 3: Set Up the Client (ES6 Modules)
+
+Alternatively, if you are using ES6 module syntax, you can set up the client as follows. Replace `YOUR_WEBSITE_ID` with your actual website ID from Insights.
+
+```js filename="server.mjs"
+import Insihts from '@insihts/node';
+
+Insihts.init({
+  websiteId: '31238599-94ad-4bec-a265-f409ab07f075', // Your website ID
+});
+
+Insihts.track({ url: '/home' });
+```
+
+### Step 4: Set Up the Client (TypeScript)
+
+If you are using TypeScript, you can set up the client similarly to the ES6 module syntax. You may need to define types yourself.
+
+```ts filename="server.ts"
+import Insihts from '@insihts/node';
+
+Insihts.init({
+  websiteId: '31238599-94ad-4bec-a265-f409ab07f075', // Your website ID
+});
+
+Insihts.track({ url: '/home' });
+```
+
+### Step 5: Use the Client
+
+You can now use the client instance to track various events, such as pageviews and custom events. Refer to the Insights Node client documentation for more details on the available methods.
+
+### Step 6: Verify Installation
+
+Deploy your updated server-side code and verify that data is being sent to Insights by checking your dashboard.
+
+</Steps>
+
+<Callout>
+  Need help? contact our support team.
+</Callout>

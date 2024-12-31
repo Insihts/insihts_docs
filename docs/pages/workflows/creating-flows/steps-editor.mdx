@@ -1,0 +1,49 @@
+---
+title: Steps Editor
+description: Insihts Workflows comes with a no-code editor that allows you to create and manage your onboarding workflows without writing any code.
+---
+
+# Steps Editor
+
+Insihts Workflows comes with a no-code editor that allows you to create and manage your onboarding workflows without writing any code.
+
+## Create a New Step
+
+To create a new step, click on the **Add Step** button below the last step in the workflow, or hover between two steps and click on the **+** button that appears. After you pick a step type, you can start configuring it by clicking on the step card and editing the form that appears on the right side of the screen.
+
+### Pick a Step Type
+
+The first thing you need to do is pick a step type. This will define the behavior and configuration of the step. The available step types are:
+
+- [Tooltip](/step-types/tooltip) - A simple step that shows a tooltip on the screen pointing to an element.
+- [Modal](/step-types/modal) - A step that shows a modal with an overlay.
+- [Banner](/step-types/banner) - A step that shows a banner in a corner of the screen.
+- [Wait](/step-types/wait) - A step that waits for a user action to continue.
+- [Fork](/step-types/fork) - A step that splits the workflow into multiple branches.
+
+### Configure the Step
+
+Once you have selected the step type, you can start configuring the step. The configuration options will depend on the step type you have selected. For guides on how to configure each step type, check the **Step Types** section in the sidebar or the links above.
+
+### Configure Branches (Optional)
+
+By default, after a step is completed, the workflow will continue to the next step in the sequence. When a following step is a fork, you need to create ways for the workflow to continue to all possible branches.
+
+You can configure target branches in two main ways:
+
+- **After Clicking Next Step Button**: When editing a tooltip or modal step, you can point to different branches when setting up the Next Step button. [Learn more](/step-types/shared-properties/footer-properties#custom-actions)
+- **After Waiting for User Action**: When waiting for a user action, you can specify the target branch for each wait option. [Learn more](/step-types/wait#target-branch)
+
+## Create a Fork
+
+To create a fork, click on the **Add Step** or **+** buttons in the step editor and select the **Fork** option.
+
+By default, a fork is created with two branches. You can add more branches by hovering to the right side of the fork boundary (the dashed line) and clicking on the fork icon that appears.
+
+### Add Branches to a Fork
+
+To add more branches to a fork, hover to the left side of the fork boundary (the dashed line) and click on the fork icon that appears. This will add a new branch to the fork with a tooltip step.
+
+## Step Preview
+
+When you have a step selected in the steps editor, you can see a preview of the step on the right side of the screen under the step configuration form. The preview is not interactive, but it will show you the content of the step and how it will be displayed on the screen.

@@ -1,0 +1,50 @@
+import { Callout, Steps } from 'nextra/components'
+
+# Track Outbound Links in Insights
+
+When a user clicks on a link to an external site, this event is normally not captured because the user is leaving the site where Insights runs. However, you can use events to track this behavior.
+
+<Steps>
+
+### Using Data Attributes
+
+To track outbound links, add data attributes to the anchor tag containing the external link. When the tag is clicked, the event will be triggered. For example:
+
+```html
+<a href="https://www.external-website.com"
+  data-insihts-event="outbound-link-click"
+  data-insihts-event-url="https://www.external-website.com"
+>
+  External link
+</a>
+```
+
+This sends an event named **outbound-link-click** with the value of `url` set to the external URL.
+
+### Automating Event Attributes
+
+If you don't want to manually update all your anchor tags, use the following script to automatically add the event attributes to all outbound tags. Place this script at the bottom of your HTML body:
+
+```html
+<script type="text/javascript">
+  (() => {
+    const name = 'outbound-link-click';
+    document.querySelectorAll('a').forEach(a => {
+      if (a.host !== window.location.host && !a.getAttribute('data-insihts-event')) {
+        a.setAttribute('data-insihts-event', name);
+        a.setAttribute('data-insihts-event-url', a.href);
+      }
+    });
+  })();
+</script>
+```
+
+### Verifying Outbound Link Tracking
+
+After implementing the above, verify the tracking by clicking on an outbound link and checking the **Events** section in your Insights dashboard.
+
+</Steps>
+
+<Callout>
+  For further guidance, visit our [Help Center](https://insihts.com) or reach out to support.
+</Callout>

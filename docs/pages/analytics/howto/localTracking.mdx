@@ -1,0 +1,37 @@
+import { Callout, Steps } from 'nextra/components'
+
+# Exclude Your Own Visits in Insights
+
+If you want to visit your own website but exclude your visits from appearing in your stats, you can achieve this by adding a setting to your browser.
+
+<Steps>
+
+### Step 1: Open the Developer Console
+
+Bring up the developer console in your browser:
+
+- Go to **Settings** -> **More tools** -> **Developer tools**.
+
+### Step 2: Exclude Yourself
+
+In the console, enter the following code and press Enter:
+
+```js
+localStorage.setItem('insihts.disabled', 1);
+```
+
+This setting applies per website, so you will need to repeat this for each website you want to be excluded from.
+
+### Step 3: Remove the Exclusion
+
+To remove the setting and include yourself in the stats again, enter the following code and press Enter:
+
+```js
+localStorage.removeItem('insihts.disabled');
+```
+
+</Steps>
+
+<Callout>
+  For further assistance, visit the [Insights Help Center](https://insihts.com) or contact our support team.
+</Callout>
