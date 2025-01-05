@@ -8,21 +8,23 @@ The Insights tracker can be integrated into various frameworks and languages. Be
 
 <Tabs.Tab>
 ```javascript filename="_document.js"
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Html, Head, Main } from 'next/document';
+import Script from 'next/script';
 
 export default function Document() {
   return (
     <Html>
       <Head>
-        <script
-          defer
+        <Script
           src="https://collector.insihts.com/script.js"
+          strategy="afterInteractive"
           data-website-id="YOUR_WEBSITE_ID"
-        ></script>
+          onLoad={() => console.log('Insights script loaded')}
+          onError={(error) => console.error('Insights script failed to load:', error)}
+        />
       </Head>
       <body>
         <Main />
-        <NextScript />
       </body>
     </Html>
   );

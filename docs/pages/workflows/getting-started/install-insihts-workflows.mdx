@@ -14,7 +14,7 @@ import { Tabs, Pre, Code } from "nextra/components";
 Install the Insihts Workflows SDK library via an NPM package manager.
 
 ```sh npm2yarn
-npm i @insihts/js
+npm i @insihts/workflow
 ```
 
 Create the Insihts Workflows component and initialize it with your project ID.
@@ -22,7 +22,7 @@ Create the Insihts Workflows component and initialize it with your project ID.
 ```jsx
 "use client";
 
-import { init } from "@insihts/js";
+import { init } from "@insihts/workflow";
 import { useEffect } from "react";
 
 export const InsihtsWorkflows = () => {
@@ -48,7 +48,7 @@ This is the simplest way to install Insihts Workflows. It only takes a few minut
 Copy the snippet below and paste it within the `<head>` tag of your product—ideally right before the closing `</head>` tag.
 
 ```html
-<script defer src="https://cdn.jsdelivr.net/npm/@insihts/js/latest/index.global.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@insihts/workflow/latest/index.global.js"></script>
 ```
 
 When you're done, you can start using Insihts Workflows by calling `insihts.init()` anywhere in your code. You can find the `projectId` in your project settings.
@@ -71,13 +71,13 @@ Once the snippet is installed, you can start creating onboarding workflows and l
 Install the Insihts Workflows SDK library via an NPM package manager.
 
 ```sh npm2yarn
-npm i @insihts/js
+npm i @insihts/workflow
 ```
 
 Then import it into your code. You can find the `projectId` in your project settings.
 
 ```js
-import { init } from "@insihts/js";
+import { init } from "@insihts/workflow";
 
 init({
   // Insert your Insihts Workflows projectId

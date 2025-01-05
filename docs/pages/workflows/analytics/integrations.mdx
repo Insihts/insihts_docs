@@ -6,7 +6,7 @@ import { Tabs } from 'nextra/components'
 
 # Integrations
 
-Insihts Workflows automatically tracks how users interact with your workflows to help you better understand user engagement with your product. If the built-in [insights](/analytics/workflow-insights) are not enough, you can easily integrate with almost any analytics tool to get the full picture of your users' behavior.
+Insihts Workflows automatically tracks how users interact with your workflows to help you better understand user engagement with your product. If the built-in [insights](/workflows/analytics/workflow-insights) are not enough, you can easily integrate with almost any analytics tool to get the full picture of your users' behavior.
 
 ## Setup
 
@@ -21,7 +21,7 @@ To integrate Insihts Workflows with your analytics tool, pass a `tracking` funct
 You can use Insihts' own analytics endpoint to track events directly:
 
 ```js
-import { init } from "@insihts/js";
+import { init } from "@insihts/workflow";
 
 init({
   projectId: "xxx",
@@ -56,7 +56,7 @@ This sends event data directly to Insihts for tracking and analysis.
 Here is an example of how you can send events from Insihts Workflows to Mixpanel for analysis:
 
 ```js
-import { init } from "@insihts/js";
+import { init } from "@insihts/workflow";
 import mixpanel from "mixpanel-browser";
 
 init({

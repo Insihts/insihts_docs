@@ -16,7 +16,7 @@ To reset from the SDK, make sure you [identify the user first](/getting-started/
 To reset a specific workflow for a user, you can call the `resetWorkflow` function with the workflow human ID as an argument. To get the workflow human ID, head over to the Settings tab of the workflow in the Insihts Workflows Cloud.
 
 ```js
-import { resetWorkflow } from "@insihts/js";
+import { resetWorkflow } from "@insihts/workflow";
 
 // Reset single workflow
 resetWorkflow("my-workflow");
@@ -27,7 +27,7 @@ resetWorkflow("my-workflow");
 To reset all workflows for a user, you can call the `resetAllWorkflows` function.
 
 ```js
-import { resetAllWorkflows } from "@insihts/js";
+import { resetAllWorkflows } from "@insihts/workflow";
 
 // Reset all workflows
 resetAllWorkflows();

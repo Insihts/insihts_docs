@@ -1,4 +1,4 @@
 export default {
-  "flow-insights": "Flow insights",
+  "workflow-insights": "Workflow insights",
   "integrations": "Integrations"
 }
